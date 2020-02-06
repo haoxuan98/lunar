@@ -9,7 +9,7 @@ mybatis:
   type-aliases-package: com.example.lunar.model
   mapper-locations: classpath:mapper/*.xml
 server:
-  port: 80
+  port: 443
   ssl:
     key-store: classpath:keystore.p12
     key-store-password: 123456
