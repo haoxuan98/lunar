@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lunar.dao.EnglishMultipleChoiceMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.lunar.model.EnglishMultipleChoice">
+        <result column="analysis" jdbcType="LONGVARCHAR" property="analysis" />
+        <result column="choice_a" jdbcType="VARCHAR" property="choice_a" />
+        <result column="choice_b" jdbcType="VARCHAR" property="choice_b" />
+        <result column="choice_c" jdbcType="VARCHAR" property="choice_c" />
+        <result column="choice_d" jdbcType="VARCHAR" property="choice_d" />
+        <result column="correct_choice" jdbcType="VARCHAR" property="correct_choice"/>
+        <result column="topic" jdbcType="LONGVARCHAR" property="topic" />
+    </resultMap>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select analysis, choice_a, choice_b, choice_c, choice_d, correct_choice, topic from english_mutiple_choice
+    </select>
+
+    <insert id="addChoice" parameterType="com.example.lunar.model.EnglishMultipleChoice">
+        insert into english_mutiple_choice (analysis, choice_a, choice_b, choice_c, choice_d, correct_choice, topic)
+        values (#{analysis,jdbcType=LONGVARCHAR}, #{choice_a,jdbcType=VARCHAR},#{choice_b,jdbcType=VARCHAR}
+        , #{choice_c,jdbcType=VARCHAR}, #{choice_d,jdbcType=VARCHAR}, #{correct_choice,jdbcType=VARCHAR},
+        #{topic,jdbcType=LONGVARCHAR})
+    </insert>
+</mapper>
